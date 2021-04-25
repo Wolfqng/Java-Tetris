@@ -181,6 +181,10 @@ public class Enviroment extends JPanel {
 			score += 1200;		
 	}
 	
+	public static void moveTetraDown() {
+		while(tetra.moveDown());
+	}
+	
 	public static void restart() {
 		map = new Block[10][24];
 		score = 0;
@@ -191,21 +195,34 @@ public class Enviroment extends JPanel {
 }
 
 class keyListener extends KeyAdapter {
-    @Override
+    boolean keyPressed = false;
+	
+	@Override
     public void keyPressed(KeyEvent event) {
-    	if(event.getKeyCode() == KeyEvent.VK_D)
-    		Enviroment.tetra.moveRight();
-    	if(event.getKeyCode() == KeyEvent.VK_A)
-    		Enviroment.tetra.moveLeft();
-    	if(event.getKeyCode() == KeyEvent.VK_E)
-    		Enviroment.tetra.rotateCW();
-    	if(event.getKeyCode() == KeyEvent.VK_Q)
-    		Enviroment.tetra.rotateCC();
-		if(event.getKeyCode() == KeyEvent.VK_S)
-    		Enviroment.tetra.moveDown();
-		
-		if(!Enviroment.playing && event.getKeyCode() == KeyEvent.VK_SPACE)
-			Enviroment.restart();
+    	if(!keyPressed) {
+	    	if(event.getKeyCode() == KeyEvent.VK_D)
+	    		Enviroment.tetra.moveRight();
+	    	if(event.getKeyCode() == KeyEvent.VK_A)
+	    		Enviroment.tetra.moveLeft();
+	    	if(event.getKeyCode() == KeyEvent.VK_E)
+	    		Enviroment.tetra.rotateCW();
+	    	if(event.getKeyCode() == KeyEvent.VK_Q)
+	    		Enviroment.tetra.rotateCC();
+			if(event.getKeyCode() == KeyEvent.VK_S)
+	    		Enviroment.tetra.moveDown();
+			if(event.getKeyCode() == KeyEvent.VK_SPACE)
+				Enviroment.moveTetraDown();
+			
+			if(!Enviroment.playing && event.getKeyCode() == KeyEvent.VK_SPACE)
+				Enviroment.restart();
+    	}
+    	
+    	keyPressed = true;
+    }
+    
+    @Override
+    public void keyReleased(KeyEvent event) {
+    	keyPressed = false;
     }
     
 }
