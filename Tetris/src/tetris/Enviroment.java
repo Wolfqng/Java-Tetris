@@ -48,7 +48,6 @@ public class Enviroment extends JPanel {
 					g.setColor(Color.BLACK);
 					g.drawRect(WIDTHOFFSET + (i * BLOCKSIZE), (j * BLOCKSIZE), BLOCKSIZE, BLOCKSIZE);
 				}
-				
 			}
 		}
 		
@@ -57,6 +56,7 @@ public class Enviroment extends JPanel {
 			for(Block b : tetra.getBlocks()) {
 				int x = WIDTHOFFSET + (b.getX() * BLOCKSIZE);
 				int y = (b.getY() * BLOCKSIZE);
+				
 				Color color = b.getColor();
 				g.setColor(color);
 				g.fillRect(x, y, BLOCKSIZE, BLOCKSIZE);
