@@ -3,7 +3,7 @@ package tetris;
 import java.awt.Color;
 import java.util.ArrayList;
 
-public abstract class Tetromino {
+public class Tetromino {
 	private ArrayList<Block> blocks = new ArrayList<>();
 	private Color c;
 	private int x, y;

@@ -122,7 +122,6 @@ public class Enviroment extends JPanel {
 		
 		//New one
 		int random = (int)(Math.random() * 6);
-		//Color color = new Color((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255));
 		int x = (int)(Math.random() * (map.length - 1));
 		int y = 0;
 		if(random == 0)

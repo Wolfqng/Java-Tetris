@@ -33,9 +33,13 @@ public class IBlock extends Tetromino {
 	
 	public IBlock(int x, int y, int phase) {
 		super(new Color(0, 0, 255), x, y, phase, phases);
+		if(this.getClass().getSuperclass() == Tetromino.class)
+			System.out.println("Worked");
+
 	}
 
 	public int[][][] getPhases() {
 		return phases;
 	}
+	
 }
